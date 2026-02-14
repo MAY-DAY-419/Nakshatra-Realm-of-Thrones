@@ -550,10 +550,10 @@ const renderSports = () => {
 	sportsGrid.innerHTML = sportsData
 		.map(
 			(sport, index) => `
-				<button class="sport-card" type="button" data-sport-index="${index}">
+				<div class="sport-card" data-sport-index="${index}">
 					<div class="sport-icon">${sport.icon}</div>
 					<div class="sport-name">${sport.name}</div>
-				</button>
+				</div>
 			`
 		)
 		.join("");
@@ -718,34 +718,10 @@ const closeLeaderboardModal = () => {
 };
 
 const bindSportsEvents = () => {
-	if (!sportsGrid || !sportModal) {
+	if (!sportsGrid) {
 		return;
 	}
-
-	sportsGrid.addEventListener("click", (event) => {
-		const card = event.target.closest(".sport-card");
-		if (!card) {
-			return;
-		}
-		const index = Number(card.dataset.sportIndex);
-		const sport = sportsData[index];
-		if (sport) {
-			openSportModal(sport, card);
-		}
-	});
-
-	sportModal.addEventListener("click", (event) => {
-		if (event.target.dataset.close === "true") {
-			closeSportModal();
-		}
-	});
-
-	document.addEventListener("keydown", (event) => {
-		if (event.key === "Escape") {
-			closeSportModal();
-			closeLeaderboardModal();
-		}
-	});
+	// Sports are display-only now; no modal or click actions.
 };
 
 const bindLeaderboardEvents = () => {
