@@ -22,12 +22,13 @@
 
 html, body {
 	height: 100%;
+	background-color: #000000;
 }
 
 body {
 	font-family: "IM Fell English", "Times New Roman", serif;
 	color: var(--text);
-	background: radial-gradient(60% 60% at 50% 10%, #1a2330 0%, #0b0f14 55%, #05070a 100%);
+	background-color: #000000;
 	min-height: 100vh;
 	overflow-x: hidden;
 	overflow-y: auto;
@@ -39,9 +40,16 @@ body::before {
 	position: fixed;
 	inset: 0;
 	background:
-		radial-gradient(70% 40% at 50% 0%, rgba(233, 177, 98, 0.02), transparent 60%),
-		radial-gradient(30% 30% at 18% 18%, rgba(255, 160, 80, 0.02), transparent 60%),
-		linear-gradient(180deg, rgba(3, 5, 8, 0.02), rgba(3, 5, 8, 0.02));
+		radial-gradient(1px 1px at 12% 18%, rgba(255, 255, 255, 0.2) 0, transparent 60%),
+		radial-gradient(1px 1px at 24% 62%, rgba(255, 255, 255, 0.16) 0, transparent 60%),
+		radial-gradient(1px 1px at 38% 32%, rgba(255, 255, 255, 0.18) 0, transparent 60%),
+		radial-gradient(1px 1px at 56% 22%, rgba(255, 255, 255, 0.14) 0, transparent 60%),
+		radial-gradient(1px 1px at 68% 48%, rgba(255, 255, 255, 0.16) 0, transparent 60%),
+		radial-gradient(1px 1px at 82% 18%, rgba(255, 255, 255, 0.15) 0, transparent 60%),
+		radial-gradient(1px 1px at 86% 74%, rgba(255, 255, 255, 0.18) 0, transparent 60%),
+		radial-gradient(120px 120px at 12% 86%, rgba(244, 211, 138, 0.06), transparent 60%),
+		radial-gradient(180px 180px at 86% 84%, rgba(122, 26, 43, 0.08), transparent 65%);
+	opacity: 0;
 	pointer-events: none;
 	z-index: -2;
 }
@@ -50,9 +58,14 @@ body::after {
 	content: "";
 	position: fixed;
 	inset: 0;
-	background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-	background-size: 3px 3px;
-	opacity: 0.02;
+	background-image:
+		radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+		radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+		linear-gradient(135deg, rgba(244, 211, 138, 0.03) 0%, transparent 40%),
+		linear-gradient(315deg, rgba(122, 26, 43, 0.04) 0%, transparent 45%);
+	background-size: 140px 140px, 220px 220px, 520px 520px, 480px 480px;
+	background-position: 0 0, 60px 90px, 20% 30%, 80% 70%;
+	opacity: 0;
 	pointer-events: none;
 	z-index: -1;
 }
@@ -100,6 +113,7 @@ a {
 	height: 100%;
 }
 
+
 #dragon-sky canvas {
 	position: absolute;
 	inset: 0;
@@ -136,8 +150,8 @@ a {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	height: 40vh;
-	background: linear-gradient(180deg, rgba(5, 7, 10, 0) 0%, rgba(5, 7, 10, 0.85) 100%);
+	height: 60vh;
+	background: linear-gradient(180deg, rgba(5, 7, 10, 0) 0%, rgba(5, 7, 10, 0.95) 100%);
 	pointer-events: none;
 	z-index: -1;
 }
@@ -723,7 +737,7 @@ a {
 	align-items: center;
 	gap: 16px;
 	padding: 14px 18px;
-	background: linear-gradient(120deg, rgba(20, 26, 34, 0.9), rgba(10, 14, 20, 0.98));
+	background: transparent;
 	border: 1px solid var(--gold-strong);
 	border-left: 4px solid var(--house-color);
 	box-shadow: var(--shadow);
@@ -913,45 +927,33 @@ th:nth-child(2) {
 	color: #ff6b35;
 	font-size: 1.3em;
 	font-weight: 700;
-	text-shadow: 0 0 15px rgba(255, 107, 53, 0.7), 0 0 30px rgba(255, 107, 53, 0.3);
-	animation: flameRank1 2.5s ease-in-out infinite;
 }
 
 .rank-2 {
 	color: #f4d38a;
 	font-size: 1.15em;
 	font-weight: 600;
-	text-shadow: 0 0 12px rgba(244, 211, 138, 0.6);
-	animation: flameRank2 2.5s ease-in-out infinite;
 }
 
 .rank-3 {
 	color: #e8d4a8;
 	font-size: 1.1em;
 	font-weight: 600;
-	text-shadow: 0 0 10px rgba(232, 212, 168, 0.5);
-	animation: flameRank3 2.5s ease-in-out infinite;
 }
 
 .rank-house.rank-1,
 .rank-points.rank-1 {
 	color: #ff6b35;
-	text-shadow: 0 0 15px rgba(255, 107, 53, 0.7);
-	animation: flameRank1 2.5s ease-in-out infinite;
 }
 
 .rank-house.rank-2,
 .rank-points.rank-2 {
 	color: #f4d38a;
-	text-shadow: 0 0 12px rgba(244, 211, 138, 0.6);
-	animation: flameRank2 2.5s ease-in-out infinite;
 }
 
 .rank-house.rank-3,
 .rank-points.rank-3 {
 	color: #e8d4a8;
-	text-shadow: 0 0 10px rgba(232, 212, 168, 0.5);
-	animation: flameRank3 2.5s ease-in-out infinite;
 }
 
 .house {
