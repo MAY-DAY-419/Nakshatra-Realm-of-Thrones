@@ -1124,6 +1124,44 @@ footer {
 
 	.houses-list {
 		grid-template-columns: 1fr;
+		gap: 10px 14px;
+	}
+
+	.house-line {
+		grid-template-columns: 60px 1fr 36px;
+		padding: 10px 12px;
+		gap: 12px;
+		transform: translateY(-20px);
+	}
+
+	.house-line:nth-child(even) {
+		transform: translateY(-20px);
+	}
+
+	.house-line.slide-in {
+		transform: translateY(0);
+	}
+
+	.house-line-name {
+		font-size: 0.95rem;
+	}
+
+	.house-line-branch {
+		font-size: 0.85rem;
+	}
+
+	.house-line-sigil {
+		font-size: 0.9rem;
+	}
+
+	.house-flag {
+		width: 48px;
+		height: 28px;
+	}
+
+	.house-flag img {
+		width: 40px;
+		max-height: 22px;
 	}
 
 	#baby-dragon {
@@ -1131,7 +1169,33 @@ footer {
 	}
 
 	th, td {
-		padding: 14px 12px;
+		padding: 12px 8px;
+		font-size: 0.9rem;
+	}
+
+	.rank-num {
+		font-size: 1.1rem;
+	}
+
+	.rank-flag {
+		padding: 8px 4px;
+	}
+
+	.rank-flag img {
+		max-width: 32px;
+	}
+
+	table {
+		background-image:
+			linear-gradient(135deg, rgba(20, 26, 34, 0.95), rgba(5, 7, 10, 0.98)),
+			url('throne.png');
+		background-size: cover, 200%;
+		background-position: center, center;
+	}
+
+	.rankings {
+		border-width: 1px;
+		box-shadow: 0 0 6px rgba(244, 180, 98, 0.4), inset 0 0 6px rgba(244, 180, 98, 0.08);
 	}
 
 	.section-title {
