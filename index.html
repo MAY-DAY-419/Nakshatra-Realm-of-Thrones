@@ -1,1603 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Nakshatra 2026 | Throne of Titans</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=IM+Fell+English:ital@0;1&display=swap"
-			rel="stylesheet"
-		/>
-		<style>
-			:root {
-				--bg: #0b0f14;
-				--bg-deep: #05070a;
-				--panel: #1f2833;
-				--panel-2: #141a22;
-				--gold: #d6b36a;
-				--gold-strong: #f4d38a;
-				--silver: #c2c9d1;
-				--bronze: #b07d4f;
-				--ember: rgba(244, 180, 98, 0.45);
-				--text: #e7e9ee;
-				--muted: #9aa3ad;
-				--shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
-				--radius: 2px;
-			}
-
-			* {
-				box-sizing: border-box;
-				margin: 0;
-				padding: 0;
-			}
-
-			html, body {
-				height: 100%;
-			}
-
-			body {
-				font-family: "IM Fell English", "Times New Roman", serif;
-				color: var(--text);
-				background: radial-gradient(60% 60% at 50% 10%, #1a2330 0%, #0b0f14 55%, #05070a 100%);
-				min-height: 100vh;
-				overflow-x: hidden;
-				overflow-y: auto;
-				position: relative;
-			}
-
-			body::before {
-				content: "";
-				position: fixed;
-				inset: 0;
-				background:
-					radial-gradient(70% 40% at 50% 0%, rgba(233, 177, 98, 0.02), transparent 60%),
-					radial-gradient(30% 30% at 18% 18%, rgba(255, 160, 80, 0.02), transparent 60%),
-					linear-gradient(180deg, rgba(3, 5, 8, 0.02), rgba(3, 5, 8, 0.02));
-				pointer-events: none;
-				z-index: -2;
-			}
-
-			body::after {
-				content: "";
-				position: fixed;
-				inset: 0;
-				background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-				background-size: 3px 3px;
-				opacity: 0.02;
-				pointer-events: none;
-				z-index: -1;
-			}
-
-			h1, h2, h3 {
-				font-family: "Cinzel", "Times New Roman", serif;
-				letter-spacing: 0.04em;
-			}
-
-			a {
-				color: inherit;
-				text-decoration: none;
-			}
-
-			.container {
-				width: min(1100px, 92vw);
-				margin: 0 auto;
-			}
-
-			#dragon-sky {
-				position: fixed;
-				inset: 0;
-				width: 100vw;
-				height: 100vh;
-				z-index: 0;
-				opacity: 0.55;
-				pointer-events: none;
-			}
-
-			#baby-dragon {
-				position: fixed;
-				left: 0;
-				top: 0;
-				width: 42px;
-				height: 42px;
-				z-index: 5;
-				pointer-events: none;
-				mix-blend-mode: screen;
-				filter: drop-shadow(0 0 10px rgba(244, 180, 98, 0.45));
-			}
-
-			#baby-dragon svg {
-				display: block;
-				width: 100%;
-				height: 100%;
-			}
-
-			#dragon-sky canvas {
-				position: absolute;
-				inset: 0;
-			}
-
-			.hero {
-				position: relative;
-				padding: 120px 0 90px;
-				min-height: 100vh;
-				display: flex;
-				align-items: center;
-				text-align: center;
-				z-index: 1;
-				background-image:
-					linear-gradient(180deg, rgba(5, 7, 10, 0.02) 0%, rgba(5, 7, 10, 0.02) 70%),
-					url("hallaway.png");
-				background-size: cover;
-				background-position: center;
-			}
-
-			.hero::before {
-				content: "";
-				position: absolute;
-				inset: 0;
-				background:
-					linear-gradient(180deg, rgba(5, 7, 10, 0.02) 0%, rgba(5, 7, 10, 0.02) 90%),
-					radial-gradient(50% 35% at 50% 20%, rgba(244, 180, 98, 0.02), transparent 70%);
-				z-index: -1;
-			}
-
-			.hero::after {
-				content: "";
-				position: absolute;
-				left: 0;
-				right: 0;
-				bottom: 0;
-				height: 40vh;
-				background: linear-gradient(180deg, rgba(5, 7, 10, 0) 0%, rgba(5, 7, 10, 0.85) 100%);
-				pointer-events: none;
-				z-index: -1;
-			}
-
-			.hero-banner {
-				display: inline-block;
-				padding: 10px 22px;
-				border: 1px solid var(--gold);
-				text-transform: uppercase;
-				letter-spacing: 0.3em;
-				font-size: 0.72rem;
-				color: var(--gold-strong);
-			}
-
-			.hero h1 {
-				font-size: clamp(2.7rem, 4.5vw, 4.4rem);
-				margin: 28px 0 14px;
-			}
-
-			.hero h1 span {
-				display: block;
-				font-size: clamp(1.6rem, 3.2vw, 2.8rem);
-				color: var(--gold-strong);
-			}
-
-			.hero p {
-				max-width: 620px;
-				margin: 0 auto 32px;
-				font-size: 1.2rem;
-				color: var(--muted);
-			}
-
-			.cta {
-				display: inline-flex;
-				align-items: center;
-				justify-content: center;
-				gap: 10px;
-				padding: 14px 34px;
-				border: 1px solid var(--gold);
-				border-radius: var(--radius);
-				font-family: "Cinzel", serif;
-				font-weight: 600;
-				text-transform: uppercase;
-				letter-spacing: 0.16em;
-				background: transparent;
-				color: var(--gold-strong);
-				transition: all 0.3s ease;
-				box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-			}
-
-			.cta:hover {
-				background: linear-gradient(120deg, #b5812f, #f4d38a);
-				color: #12161d;
-				box-shadow: 0 14px 34px rgba(244, 180, 98, 0.35);
-				transform: translateY(-2px);
-			}
-
-			.section {
-				padding: 70px 0 80px;
-				position: relative;
-				z-index: 1;
-			}
-
-			.section-title {
-				display: flex;
-				align-items: center;
-				gap: 16px;
-				text-transform: uppercase;
-				font-size: clamp(1.4rem, 2vw, 2rem);
-				margin-bottom: 24px;
-			}
-
-			.section-title::before,
-			.section-title::after {
-				content: "";
-				flex: 1;
-				height: 1px;
-				background: linear-gradient(90deg, transparent, var(--gold), transparent);
-			}
-
-			.sports-meta {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 12px 18px;
-				margin: 6px 0 20px;
-				color: var(--muted);
-				font-size: 0.95rem;
-			}
-
-			.sports-grid {
-				display: grid;
-				grid-template-columns: repeat(2, minmax(0, 1fr));
-				gap: 14px;
-			}
-
-			@media (min-width: 900px) {
-				.sports-grid {
-					grid-template-columns: repeat(3, minmax(0, 1fr));
-				}
-			}
-
-			@media (min-width: 1200px) {
-				.sports-grid {
-					grid-template-columns: repeat(4, minmax(0, 1fr));
-				}
-			}
-
-			.sport-card {
-				display: flex;
-				align-items: center;
-				gap: 12px;
-				padding: 14px 16px;
-				border: 1px solid rgba(214, 179, 106, 0.25);
-				background: linear-gradient(140deg, rgba(16, 20, 26, 0.92), rgba(10, 12, 18, 0.98));
-				border-radius: 10px;
-				box-shadow: var(--shadow);
-				cursor: pointer;
-				transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-			}
-
-			.sport-card:hover,
-			.sport-card:focus-visible {
-				transform: translateY(-4px);
-				border-color: rgba(244, 211, 138, 0.7);
-				box-shadow: 0 18px 30px rgba(244, 180, 98, 0.18);
-			}
-
-			.sport-card.active {
-				box-shadow: 0 0 22px rgba(244, 180, 98, 0.25);
-				border-color: rgba(244, 211, 138, 0.8);
-			}
-
-			.sport-icon {
-				width: 34px;
-				height: 34px;
-				display: grid;
-				place-items: center;
-				background: rgba(122, 26, 43, 0.35);
-				border: 1px solid rgba(214, 179, 106, 0.4);
-				border-radius: 8px;
-				color: var(--gold-strong);
-			}
-
-
-			.sport-icon svg {
-				width: 20px;
-				height: 20px;
-				fill: currentColor;
-			}
-
-			.sport-name {
-				font-family: "Cinzel", serif;
-				font-size: 1.05rem;
-				letter-spacing: 0.04em;
-				color: var(--gold-strong);
-			}
-
-			.sport-modal {
-				position: fixed;
-				inset: 0;
-				z-index: 20;
-				display: none;
-			}
-
-			.sport-modal.is-open {
-				display: block;
-			}
-
-			.sport-overlay {
-				position: absolute;
-				inset: 0;
-				background: rgba(5, 7, 10, 0.6);
-				opacity: 0;
-				transition: opacity 0.3s ease;
-			}
-
-			.sport-modal.is-open .sport-overlay {
-				opacity: 1;
-			}
-
-			.sport-panel {
-				position: absolute;
-				left: 0;
-				right: 0;
-				bottom: 0;
-				background: #0c1117;
-				border-top: 1px solid rgba(214, 179, 106, 0.35);
-				border-radius: 18px 18px 0 0;
-				padding: 18px 18px 24px;
-				max-height: 72vh;
-				overflow-y: auto;
-				transform: translateY(100%);
-				transition: transform 0.35s ease;
-			}
-
-			.sport-modal.is-open .sport-panel {
-				transform: translateY(0);
-			}
-
-			.panel-head {
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
-				gap: 12px;
-				margin-bottom: 10px;
-			}
-
-			.panel-title {
-				font-family: "Cinzel", serif;
-				font-size: 1.2rem;
-			}
-
-			.panel-close {
-				background: transparent;
-				border: 1px solid rgba(214, 179, 106, 0.4);
-				color: var(--gold-strong);
-				padding: 6px 12px;
-				border-radius: 999px;
-				cursor: pointer;
-				transition: all 0.3s ease;
-			}
-
-			.panel-close:hover {
-				background: rgba(244, 211, 138, 0.12);
-			}
-
-			.panel-badges {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 8px;
-				margin: 10px 0 16px;
-			}
-
-			.badge {
-				padding: 6px 10px;
-				border-radius: 999px;
-				background: rgba(122, 26, 43, 0.35);
-				border: 1px solid rgba(214, 179, 106, 0.35);
-				font-size: 0.8rem;
-				color: var(--gold-strong);
-			}
-
-			.panel-section {
-				margin-bottom: 16px;
-			}
-
-			.panel-section h4 {
-				font-family: "Cinzel", serif;
-				font-size: 1rem;
-				margin-bottom: 8px;
-			}
-
-			.match-list {
-				display: grid;
-				gap: 10px;
-			}
-
-			.group-grid {
-				display: grid;
-				grid-template-columns: repeat(2, minmax(0, 1fr));
-				gap: 12px;
-			}
-
-			.group-card {
-				border: 1px solid rgba(214, 179, 106, 0.18);
-				background: rgba(10, 14, 20, 0.7);
-				border-radius: 10px;
-				padding: 10px;
-			}
-
-			.group-title {
-				font-family: "Cinzel", serif;
-				font-size: 0.95rem;
-				letter-spacing: 0.06em;
-				color: var(--gold-strong);
-				margin-bottom: 8px;
-				text-transform: uppercase;
-			}
-
-			.match-item {
-				display: flex;
-				justify-content: space-between;
-				gap: 10px;
-				padding-bottom: 8px;
-				border-bottom: 1px solid rgba(214, 179, 106, 0.15);
-				font-size: 0.9rem;
-				color: var(--muted);
-			}
-
-			.match-item:last-child {
-				border-bottom: none;
-				padding-bottom: 0;
-			}
-
-			.match-item strong {
-				color: var(--text);
-			}
-
-			.houses-list {
-				display: grid;
-				grid-template-columns: repeat(2, minmax(0, 1fr));
-				gap: 14px 18px;
-			}
-
-			.house-line {
-				--house-color: var(--gold);
-				display: grid;
-				grid-template-columns: 70px 1fr 42px;
-				align-items: center;
-				gap: 16px;
-				padding: 14px 18px;
-				background: linear-gradient(120deg, rgba(20, 26, 34, 0.9), rgba(10, 14, 20, 0.98));
-				border: 1px solid var(--gold-strong);
-				border-left: 4px solid var(--house-color);
-				box-shadow: var(--shadow);
-				position: relative;
-				overflow: hidden;
-				opacity: 0;
-				transform: translateX(-50px);
-				transition: transform 0.45s ease, opacity 0.45s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-			}
-
-			.house-line:nth-child(even) {
-				transform: translateX(50px);
-			}
-
-			.house-line.slide-in {
-				opacity: 1;
-				transform: translateX(0);
-			}
-
-			.house-line::before {
-				content: "";
-				position: absolute;
-				inset: 0;
-				background: linear-gradient(90deg, rgba(255, 255, 255, 0.04), transparent 60%);
-				pointer-events: none;
-			}
-
-			.house-line:hover {
-				transform: translateY(-4px);
-				border-color: color-mix(in srgb, var(--house-color) 70%, var(--gold-strong) 30%);
-				box-shadow: 0 18px 36px rgba(244, 180, 98, 0.18);
-			}
-
-			.house-line.slide-in:hover {
-				transform: translateY(-4px);
-			}
-
-			.house-flag {
-				width: 56px;
-				height: 34px;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				background: color-mix(in srgb, var(--house-color) 35%, #0b0f14 65%);
-				border: 1px solid rgba(214, 179, 106, 0.3);
-				box-shadow: 0 0 14px color-mix(in srgb, var(--house-color) 70%, transparent);
-				border-radius: 6px;
-			}
-
-			.house-flag img {
-				display: block;
-				width: 46px;
-				height: auto;
-				max-height: 26px;
-				object-fit: contain;
-			}
-
-			.house-line-text {
-				display: flex;
-				flex-direction: column;
-				gap: 6px;
-				min-width: 0;
-			}
-
-			.house-line-name {
-				font-family: "Cinzel", serif;
-				font-size: 1.1rem;
-				letter-spacing: 0.04em;
-				white-space: nowrap;
-				overflow: hidden;
-				text-overflow: ellipsis;
-			}
-
-			.house-line-branch {
-				color: var(--muted);
-				font-size: 0.95rem;
-				white-space: nowrap;
-				overflow: hidden;
-				text-overflow: ellipsis;
-			}
-
-			.house-line-sigil {
-				font-family: "Cinzel", serif;
-				font-size: 1rem;
-				color: color-mix(in srgb, var(--house-color) 70%, var(--gold-strong) 30%);
-				text-align: right;
-			}
-
-			.house-lannister {
-				--house-color: #7a1a2b;
-			}
-
-			.house-tyrell {
-				--house-color: #2e8b57;
-			}
-
-			.house-stark {
-				--house-color: #6b6f76;
-			}
-
-			.house-targaryen {
-				--house-color: #9c1b1b;
-			}
-
-			.house-baratheon {
-				--house-color: #d6b13a;
-			}
-
-			.house-martell {
-				--house-color: #d9792b;
-			}
-
-			.house-arryn {
-				--house-color: #6a4fbf;
-			}
-
-			.house-greyjoy {
-				--house-color: #101114;
-			}
-
-			.rankings {
-				background: linear-gradient(135deg, rgba(20, 26, 34, 0.8), rgba(5, 7, 10, 0.9));
-				border: 1px solid rgba(214, 179, 106, 0.4);
-				box-shadow: var(--shadow);
-				overflow: hidden;
-			}
-
-			table {
-				width: 100%;
-				border-collapse: collapse;
-			}
-
-			th, td {
-				padding: 18px 16px;
-				text-align: left;
-				border-bottom: 1px solid rgba(214, 179, 106, 0.1);
-			}
-
-			th {
-				text-transform: uppercase;
-				font-size: 0.8rem;
-				letter-spacing: 0.2em;
-				color: var(--gold-strong);
-				background: rgba(8, 10, 14, 0.9);
-			}
-
-			td {
-				font-size: 1.05rem;
-				color: var(--text);
-			}
-
-			.rank-num {
-				font-family: "Cinzel", serif;
-				font-size: 1.4rem;
-			}
-
-			.rank-1 {
-				color: var(--gold-strong);
-				text-shadow: 0 0 18px rgba(244, 211, 138, 0.4);
-			}
-
-			.rank-2 {
-				color: var(--silver);
-			}
-
-			.rank-3 {
-				color: var(--bronze);
-			}
-
-			.house {
-				display: flex;
-				flex-direction: column;
-				gap: 4px;
-			}
-
-			.house small {
-				color: var(--muted);
-			}
-
-			.sigil {
-				font-family: "Cinzel", serif;
-				font-size: 0.95rem;
-				color: var(--gold-strong);
-			}
-
-			.status {
-				display: inline-flex;
-				align-items: center;
-				gap: 8px;
-				font-size: 0.95rem;
-				color: var(--muted);
-			}
-
-			.status span {
-				width: 8px;
-				height: 8px;
-				border-radius: 50%;
-				background: var(--gold);
-				box-shadow: 0 0 10px var(--ember);
-			}
-
-			.status-cell {
-				position: relative;
-			}
-
-			.flame-burst {
-				position: absolute;
-				right: 18px;
-				top: -8px;
-				width: 90px;
-				height: 60px;
-				pointer-events: none;
-				z-index: 1;
-			}
-
-			.flame-particle {
-				position: absolute;
-				width: 6px;
-				height: 6px;
-				border-radius: 50%;
-				background: radial-gradient(circle, #f4d38a 0%, #f06b2d 70%, rgba(244, 107, 45, 0) 100%);
-				mix-blend-mode: screen;
-				opacity: 0.9;
-			}
-
-			.progress {
-				height: 8px;
-				background: rgba(214, 179, 106, 0.2);
-				border-radius: var(--radius);
-				overflow: hidden;
-				margin-top: 10px;
-			}
-
-			.progress-bar {
-				height: 100%;
-				width: 0;
-				background: linear-gradient(90deg, #b5812f, #f4d38a);
-				box-shadow: 0 0 10px rgba(244, 180, 98, 0.4);
-				transition: width 1.2s ease;
-			}
-
-			.row-hover {
-				transition: background 0.3s ease, transform 0.3s ease;
-			}
-
-			.row-hover:hover {
-				background: rgba(214, 179, 106, 0.08);
-				transform: translateX(2px);
-			}
-
-			.decrees {
-				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-				gap: 22px;
-			}
-
-			.decree-card {
-				background: linear-gradient(135deg, #241f1a, #1b1612);
-				border: 1px solid rgba(214, 179, 106, 0.6);
-				padding: 24px;
-				box-shadow: var(--shadow);
-				position: relative;
-				transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-			}
-
-			.decree-card::before {
-				content: "";
-				position: absolute;
-				inset: 0;
-				border: 1px solid rgba(244, 211, 138, 0.15);
-				pointer-events: none;
-			}
-
-			.decree-card:hover {
-				transform: translateY(-6px) scale(1.01);
-				border-color: var(--gold-strong);
-				box-shadow: 0 20px 40px rgba(244, 180, 98, 0.25);
-			}
-
-			.decree-date {
-				font-size: 0.85rem;
-				color: var(--silver);
-				letter-spacing: 0.12em;
-				text-transform: uppercase;
-			}
-
-			.decree-title {
-				font-family: "Cinzel", serif;
-				font-size: 1.25rem;
-				margin: 12px 0 8px;
-			}
-
-			.decree-text {
-				color: var(--muted);
-				line-height: 1.5;
-			}
-
-			.fade-in {
-				opacity: 1;
-				transform: translateY(0);
-				transition: opacity 0.8s ease, transform 0.8s ease;
-			}
-
-			.js-enabled .fade-in {
-				opacity: 0;
-				transform: translateY(24px);
-			}
-
-			.js-enabled .fade-in.visible {
-				opacity: 1;
-				transform: translateY(0);
-			}
-
-			footer {
-				padding: 40px 0 50px;
-				text-align: center;
-				color: var(--muted);
-				font-size: 0.95rem;
-				position: relative;
-				z-index: 1;
-			}
-
-			@media (max-width: 760px) {
-				.hero {
-					padding: 90px 0 70px;
-				}
-
-				.sports-grid {
-					grid-template-columns: repeat(2, minmax(0, 1fr));
-				}
-
-				.sport-panel {
-					max-height: 78vh;
-				}
-
-				.houses-list {
-					grid-template-columns: 1fr;
-				}
-
-				#baby-dragon {
-					display: none;
-				}
-
-				th, td {
-					padding: 14px 12px;
-				}
-
-				.section-title {
-					flex-direction: column;
-					gap: 12px;
-				}
-
-				.section-title::before,
-				.section-title::after {
-					width: 100%;
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<script>
-			document.body.classList.add("js-enabled");
-		</script>
-		<div id="baby-dragon" aria-hidden="true">
-			<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-				<defs>
-					<linearGradient id="babyFlame" x1="0" y1="0" x2="1" y2="1">
-						<stop offset="0%" stop-color="#f4d38a" />
-						<stop offset="100%" stop-color="#f06b2d" />
-					</linearGradient>
-				</defs>
-				<circle cx="28" cy="30" r="14" fill="#1b1f26" stroke="#f4d38a" stroke-width="1.5" />
-				<circle cx="24" cy="28" r="2" fill="#f4d38a" />
-				<circle cx="34" cy="28" r="2" fill="#f4d38a" />
-				<path d="M42 32 L60 24 L52 40 Z" fill="#0b0f14" stroke="#f4d38a" stroke-width="1" />
-				<path d="M18 40 L6 52 L22 50 Z" fill="#0b0f14" stroke="#f4d38a" stroke-width="1" />
-				<path d="M30 46 C32 50 32 54 28 58 C36 56 40 50 38 44 Z" fill="#1b1f26" stroke="#f4d38a" stroke-width="1" />
-				<path d="M44 38 C50 36 54 32 56 26" stroke="url(#babyFlame)" stroke-width="2" stroke-linecap="round" />
-			</svg>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Nakshatra: Realm of Thrones</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+	<div id="dragon-sky">
+		<canvas aria-hidden="true"></canvas>
+	</div>
+	<div id="baby-dragon" aria-hidden="true">
+		<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+			<defs>
+				<linearGradient id="babyFlame" x1="0" y1="0" x2="1" y2="1">
+					<stop offset="0%" stop-color="#f4d38a" />
+					<stop offset="100%" stop-color="#f06b2d" />
+				</linearGradient>
+			</defs>
+			<circle cx="28" cy="30" r="14" fill="#1b1f26" stroke="#f4d38a" stroke-width="1.5" />
+			<circle cx="24" cy="28" r="2" fill="#f4d38a" />
+			<circle cx="34" cy="28" r="2" fill="#f4d38a" />
+			<path d="M42 32 L60 24 L52 40 Z" fill="#0b0f14" stroke="#f4d38a" stroke-width="1" />
+			<path d="M18 40 L6 52 L22 50 Z" fill="#0b0f14" stroke="#f4d38a" stroke-width="1" />
+			<path d="M30 46 C32 50 32 54 28 58 C36 56 40 50 38 44 Z" fill="#1b1f26" stroke="#f4d38a" stroke-width="1" />
+			<path d="M44 38 C50 36 54 32 56 26" stroke="url(#babyFlame)" stroke-width="2" stroke-linecap="round" />
+		</svg>
+	</div>
+
+	<header class="hero">
+		<div class="container">
+			<div class="hero-banner">Nakshatra: Realm of Thrones</div>
+			<h1>
+				Throne of Titans
+				
+			</h1>
+			<p>
+				Nakshatra channels the spirit of the Eight  Kingdoms into a campus-wide sports clash.
+				Follow the fixtures, track the points, and pledge your house.
+			</p>
+			<a class="cta" href="#sports">Enter the Arena</a>
 		</div>
-		<header class="hero">
-			<div class="container fade-in">
-				<div class="hero-banner">Nakshatra MITAOE</div>
-				<h1>
-					NAKSHATRA 2026
-					<span>Throne of Titans</span>
-				</h1>
-				<p>When you play the game of sports, you win or you fall.</p>
-				<a class="cta" href="#iron-rankings">Enter the Arena</a>
+	</header>
+
+	<main>
+		<section id="sports" class="section fade-in">
+			<div class="container">
+				<h2 class="section-title">Arena Sports </h2>
+				<div class="sports-meta">
+					<span>Last updated: <strong id="sports-last-updated">--</strong></span>
+					<span>Updates daily at 12:00 am.</span>
+				</div>
+				<div id="sports-grid" class="sports-grid" aria-live="polite"></div>
 			</div>
-		</header>
+		</section>
 
-		<main>
-			<section class="section" id="sports">
-				<div class="container">
-					<h2 class="section-title">Arena Sports</h2>
-					<div class="sports-meta">
-						<div>Results update daily at 9:00 PM</div>
-						<div>Last updated: <span id="sports-last-updated">--</span></div>
-					</div>
-					<div class="sports-grid" id="sports-grid"></div>
-				</div>
-			</section>
-
-			<section class="section" id="houses">
-				<div class="container">
-					<h2 class="section-title">Houses of the Realm</h2>
-					<div class="houses-list">
-						<article class="house-line house-lannister fade-in">
-							<div class="house-flag" aria-hidden="true">
-								<img src="house%20lannister.jpg" alt="House Lannister flag" loading="lazy" />
-							</div>
-							<div class="house-line-text">
-								<div class="house-line-name">House Lannister</div>
-								<div class="house-line-branch">Branch: Design</div>
-							</div>
-							<div class="house-line-sigil">LN</div>
-						</article>
-						<article class="house-line house-tyrell fade-in">
-							<div class="house-flag" aria-hidden="true">
-								<img src="House%20Tyrell.jpg" alt="House Tyrell flag" loading="lazy" />
-							</div>
-							<div class="house-line-text">
-								<div class="house-line-name">House Tyrell</div>
-								<div class="house-line-branch">Branches: DS · AIML · Software · IT</div>
-							</div>
-							<div class="house-line-sigil">TY</div>
-						</article>
-						<article class="house-line house-stark fade-in">
-							<div class="house-flag" aria-hidden="true">
-								<img src="House%20Stark.jpg" alt="House Stark flag" loading="lazy" />
-							</div>
-							<div class="house-line-text">
-								<div class="house-line-name">House Stark</div>
-								<div class="house-line-branch">Branch: Civil</div>
-							</div>
-							<div class="house-line-sigil">ST</div>
-						</article>
-						<article class="house-line house-targaryen fade-in">
-							<div class="house-flag" aria-hidden="true">
-								<img src="HOUSE%20TARGARYEN.jpg" alt="House Targaryen flag" loading="lazy" />
-							</div>
-							<div class="house-line-text">
-								<div class="house-line-name">House Targaryen</div>
-								<div class="house-line-branch">Branch: Mechanical</div>
-							</div>
-							<div class="house-line-sigil">TG</div>
-						</article>
-						<article class="house-line house-baratheon fade-in">
-							<div class="house-flag" aria-hidden="true">
-								<img src="House%20Baratheon.jpg" alt="House Baratheon flag" loading="lazy" />
-							</div>
-							<div class="house-line-text">
-								<div class="house-line-name">House Baratheon</div>
-								<div class="house-line-branch">Branch: Chemical</div>
-							</div>
-							<div class="house-line-sigil">BR</div>
-						</article>
-						<article class="house-line house-martell fade-in">
-							<div class="house-flag" aria-hidden="true">
-								<img src="House%20Martell.jpg" alt="House Martell flag" loading="lazy" />
-							</div>
-							<div class="house-line-text">
-								<div class="house-line-name">House Martell</div>
-								<div class="house-line-branch">Branches: Whole First Year</div>
-							</div>
-							<div class="house-line-sigil">MT</div>
-						</article>
-						<article class="house-line house-arryn fade-in">
-							<div class="house-flag" aria-hidden="true">
-								<img src="House%20Arryn.jpg" alt="House Arryn flag" loading="lazy" />
-							</div>
-							<div class="house-line-text">
-								<div class="house-line-name">House Arryn</div>
-								<div class="house-line-branch">Branch: Computer</div>
-							</div>
-							<div class="house-line-sigil">AR</div>
-						</article>
-						<article class="house-line house-greyjoy fade-in">
-							<div class="house-flag" aria-hidden="true">
-								<img src="House%20Greyjoy.jpg" alt="House Greyjoy flag" loading="lazy" />
-							</div>
-							<div class="house-line-text">
-								<div class="house-line-name">House Greyjoy</div>
-								<div class="house-line-branch">Branch: ENTC</div>
-							</div>
-							<div class="house-line-sigil">GR</div>
-						</article>
-					</div>
-				</div>
-			</section>
-
-			<section class="section" id="iron-rankings">
-				<div class="container">
-					<h2 class="section-title">The Iron Rankings</h2>
-					<div class="rankings fade-in">
-						<table>
-							<thead>
-								<tr>
-									<th>Rank</th>
-									<th>House Name</th>
-									<th>Sigil</th>
-									<th>Points</th>
-									<th>Status</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr class="row-hover">
-									<td class="rank-num rank-1">1</td>
-									<td>-</td>
-									<td class="sigil">-</td>
-									<td>-</td>
-									<td class="status"><span></span> Matches to be started yet</td>
-								</tr>
-								<tr class="row-hover">
-									<td class="rank-num rank-2">2</td>
-									<td>-</td>
-									<td class="sigil">-</td>
-									<td>-</td>
-									<td class="status"><span></span> Matches to be started yet</td>
-								</tr>
-								<tr class="row-hover">
-									<td class="rank-num rank-3">3</td>
-									<td>-</td>
-									<td class="sigil">-</td>
-									<td>-</td>
-									<td class="status"><span></span> Matches to be started yet</td>
-								</tr>
-								<tr class="row-hover">
-									<td class="rank-num">4</td>
-									<td>-</td>
-									<td class="sigil">-</td>
-									<td>-</td>
-									<td class="status"><span></span> Matches to be started yet</td>
-								</tr>
-								<tr class="row-hover">
-									<td class="rank-num">5</td>
-									<td>-</td>
-									<td class="sigil">-</td>
-									<td>-</td>
-									<td class="status"><span></span> Matches to be started yet</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</section>
-
-			<section class="section" id="royal-decrees">
-				<div class="container">
-					<h2 class="section-title">🐦 Ravens from the Citadel</h2>
-					<div class="decrees">
-						<article class="decree-card fade-in">
-							<div class="decree-date">11 Feb 2026</div>
-							<h3 class="decree-title">Trials of Valor Begin</h3>
-							<p class="decree-text">
-								The opening matches begin at dawn. All houses must present their champions at the arena gates.
-							</p>
-						</article>
-						<article class="decree-card fade-in">
-							<div class="decree-date">12 Feb 2026</div>
-							<h3 class="decree-title">Archery and Athletics</h3>
-							<p class="decree-text">
-								Precision and speed decide the fate of the midlands. Assemble your finest for the afternoon trials.
-							</p>
-						</article>
-						<article class="decree-card fade-in">
-							<div class="decree-date">13 Feb 2026</div>
-							<h3 class="decree-title">The Night Tournament</h3>
-							<p class="decree-text">
-								Under torchlight, the finals unfold. Expect surprise alliances and fierce rivalries.
-							</p>
-						</article>
-					</div>
-				</div>
-			</section>
-		</main>
-
-		<div class="sport-modal" id="sport-modal" aria-hidden="true">
-			<div class="sport-overlay" data-close="true"></div>
-			<div class="sport-panel" role="dialog" aria-modal="true" aria-labelledby="sport-panel-title">
-				<div class="panel-head">
-					<div class="panel-title" id="sport-panel-title">Sport</div>
-					<button class="panel-close" type="button" data-close="true">Close</button>
-				</div>
-				<div class="panel-badges" id="sport-panel-badges"></div>
-				<div class="panel-section">
-					<h4>Upcoming Matches</h4>
-					<div class="match-list" id="sport-upcoming"></div>
-				</div>
-				<div class="panel-section">
-					<h4>Completed Matches</h4>
-					<div class="match-list" id="sport-completed"></div>
-				</div>
-				<div class="panel-section">
-					<h4>Round Winners</h4>
-					<div class="match-list" id="sport-winners"></div>
+		<section id="houses" class="section fade-in">
+			<div class="container">
+				<h2 class="section-title">Houses of the Realm</h2>
+				<div class="houses-list">
+					<article class="house-line house-lannister">
+						<div class="house-flag"><img src="house%20lannister.jpg" alt="House Lannister flag" loading="lazy" /></div>
+						<div class="house-line-text">
+							<div class="house-line-name">House Lannister</div>
+							<div class="house-line-branch">Design Department</div>
+						</div>
+						<div class="house-line-sigil">DN</div>
+					</article>
+					<article class="house-line house-tyrell">
+						<div class="house-flag"><img src="House%20Tyrell.jpg" alt="House Tyrell flag" loading="lazy" /></div>
+						<div class="house-line-text">
+							<div class="house-line-name">House Tyrell</div>
+							<div class="house-line-branch">Allied Department</div>
+						</div>
+						<div class="house-line-sigil">AL</div>
+					</article>
+					<article class="house-line house-targaryen">
+						<div class="house-flag"><img src="HOUSE%20TARGARYEN.jpg" alt="House Targaryen flag" loading="lazy" /></div>
+						<div class="house-line-text">
+							<div class="house-line-name">House Targaryen</div>
+							<div class="house-line-branch">Mechanical Department</div>
+						</div>
+						<div class="house-line-sigil">MH</div>
+					</article>
+					<article class="house-line house-stark">
+						<div class="house-flag"><img src="House%20Stark.jpg" alt="House Stark flag" loading="lazy" /></div>
+						<div class="house-line-text">
+							<div class="house-line-name">House Stark</div>
+							<div class="house-line-branch">Civil Department</div>
+						</div>
+						<div class="house-line-sigil">CV</div>
+					</article>
+					<article class="house-line house-baratheon">
+						<div class="house-flag"><img src="House%20Baratheon.jpg" alt="House Baratheon flag" loading="lazy" /></div>
+						<div class="house-line-text">
+							<div class="house-line-name">House Baratheon</div>
+							<div class="house-line-branch">Chemical Department</div>
+						</div>
+						<div class="house-line-sigil">CH</div>
+					</article>
+					<article class="house-line house-martell">
+						<div class="house-flag"><img src="House%20Martell.jpg" alt="House Martell flag" loading="lazy" /></div>
+						<div class="house-line-text">
+							<div class="house-line-name">House Martell</div>
+							<div class="house-line-branch">FY Combined</div>
+						</div>
+						<div class="house-line-sigil">FY</div>
+					</article>
+					<article class="house-line house-arryn">
+						<div class="house-flag"><img src="House%20Arryn.jpg" alt="House Arryn flag" loading="lazy" /></div>
+						<div class="house-line-text">
+							<div class="house-line-name">House Arryn</div>
+							<div class="house-line-branch">Computer Department</div>
+						</div>
+						<div class="house-line-sigil">CO</div>
+					</article>
+					<article class="house-line house-greyjoy">
+						<div class="house-flag"><img src="House%20Greyjoy.jpg" alt="House Greyjoy flag" loading="lazy" /></div>
+						<div class="house-line-text">
+							<div class="house-line-name">House Greyjoy</div>
+							<div class="house-line-branch">ENTC Department</div>
+						</div>
+						<div class="house-line-sigil">ET</div>
+					</article>
 				</div>
 			</div>
+		</section>
+
+		<section id="leaderboard" class="section fade-in">
+			<div class="container">
+				<h2 class="section-title">The Iron Rankings</h2>
+				<div class="rankings">
+					<table>
+						<thead>
+							<tr>
+								<th>Rank</th>
+								<th>Flag</th>
+								<th>House</th>
+								<th>Points</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="row-hover leaderboard-row">
+								<td class="rank-num">--</td>
+								<td class="rank-flag">--</td>
+								<td class="rank-house">Standings loading</td>
+								<td class="rank-points">--</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer>
+		<div class="container">
+			<p>Forge glory at MITAOE Nakshatra. May the strongest house prevail.</p>
 		</div>
+	</footer>
 
-		<footer>
-			The realm watches. The crown awaits.
-		</footer>
+	<div id="sport-modal" class="sport-modal" aria-hidden="true" role="dialog" aria-modal="true">
+		<div class="sport-overlay" data-close="true"></div>
+		<div class="sport-panel">
+			<div class="panel-head">
+				<div class="panel-title" id="sport-panel-title">Sport</div>
+				<button class="panel-close" type="button" data-close="true">Close</button>
+			</div>
+			<div id="sport-panel-badges" class="panel-badges"></div>
+			<div class="panel-section">
+				<h4>Upcoming Fixtures</h4>
+				<div id="sport-upcoming-tabs" class="upcoming-tabs"></div>
+				<div id="sport-upcoming-panels"></div>
+			</div>
+			<div class="panel-section">
+				<h4>Bracket</h4>
+				<div id="sport-bracket-tabs" class="upcoming-tabs"></div>
+				<div id="sport-bracket-panels"></div>
+			</div>
+			<div class="panel-section">
+				<h4>Winners</h4>
+				<div id="sport-winners" class="match-list"></div>
+			</div>
+		</div>
+	</div>
 
-		<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-		<script>
-			const babyDragon = document.getElementById("baby-dragon");
-			const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+	<div id="leaderboard-modal" class="leaderboard-modal" aria-hidden="true" role="dialog" aria-modal="true">
+		<div class="leaderboard-overlay" data-close="true"></div>
+		<div class="leaderboard-panel">
+			<div class="panel-head">
+				<div class="panel-title" id="leaderboard-title">House Details</div>
+				<button class="panel-close" type="button" data-close="true">Close</button>
+			</div>
+			<div class="panel-section">
+				<h4>Total Points</h4>
+				<div class="match-item"><strong id="leaderboard-wins">--</strong><span>points</span></div>
+			</div>
+			<div class="panel-section">
+				<h4>Sport Breakdown</h4>
+				<div id="leaderboard-wins-list" class="match-list"></div>
+			</div>
+		</div>
+	</div>
 
-			const observer = new IntersectionObserver(
-				(entries) => {
-					entries.forEach((entry) => {
-						if (entry.isIntersecting) {
-							entry.target.classList.add("visible");
-						}
-					});
-				},
-				{ threshold: 0.2 }
-			);
-
-			document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el));
-
-			const houseObserver = new IntersectionObserver(
-				(entries) => {
-					entries.forEach((entry) => {
-						if (entry.isIntersecting) {
-							entry.target.classList.add("slide-in");
-						} else {
-							entry.target.classList.remove("slide-in");
-						}
-					});
-				},
-				{ threshold: 0.4 }
-			);
-
-			const progressBars = document.querySelectorAll(".progress-bar");
-			const statusDots = document.querySelectorAll(".status span");
-			const houseFlags = document.querySelectorAll(".house-flag");
-			const houseLines = document.querySelectorAll(".house-line");
-			const sigils = document.querySelectorAll(".sigil");
-			const heroBanner = document.querySelector(".hero-banner");
-			const topTeamRow = document.querySelector(".top-team");
-			const flameBurst = document.querySelector(".flame-burst");
-			const sportsGrid = document.getElementById("sports-grid");
-			const sportsLastUpdated = document.getElementById("sports-last-updated");
-			const sportModal = document.getElementById("sport-modal");
-			const sportPanelTitle = document.getElementById("sport-panel-title");
-			const sportPanelBadges = document.getElementById("sport-panel-badges");
-			const sportUpcoming = document.getElementById("sport-upcoming");
-			const sportCompleted = document.getElementById("sport-completed");
-			const sportWinners = document.getElementById("sport-winners");
-			const animateBars = () => {
-				progressBars.forEach((bar) => {
-					const value = bar.getAttribute("data-progress");
-					bar.style.width = `${value}%`;
-				});
-			};
-
-			houseLines.forEach((item) => houseObserver.observe(item));
-
-			const sportsData = [
-				{
-					name: "Volleyball",
-					subtitle: "Volleyball",
-					icon: "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"8.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\"/><path d=\"M12 3.5c2.4 1.6 4 4.2 4.2 7.1\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\"/><path d=\"M4.6 9.5c2.1 0.3 4.2 1.3 5.6 2.9\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\"/><path d=\"M9.2 19c1.8-1.6 4.2-2.4 6.6-2.4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\"/></svg>",
-					roundStatus: "Volleyball",
-					teams: ["ENTC", "Allied", "Comp", "Design", "Chem", "Mech", "FY", "Civil"],
-					upcomingGroups: [
-						{
-							label: "Boys",
-							matches: [
-								{ a: "ENTC", b: "Allied", time: "TBD" },
-								{ a: "Comp", b: "Design", time: "TBD" },
-								{ a: "Chem", b: "Mech", time: "TBD" },
-								{ a: "FY", b: "Civil", time: "TBD" },
-							],
-						},
-					],
-					completed: [],
-					winners: [],
-					lastUpdated: "14 Feb 2026, 3:20 PM",
-				},
-				{
-					name: "Football",
-					subtitle: "Football",
-					icon: "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"9\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\"/><polygon points=\"12,7 15,10 13.5,14 10.5,14 9,10\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\"/></svg>",
-					roundStatus: "Football",
-					teams: ["ENTC", "Civil", "Design", "FY", "Mech", "Comp", "Chem", "Allied"],
-					upcomingGroups: [
-						{
-							label: "Boys",
-							matches: [
-								{ a: "ENTC", b: "Civil", time: "TBD" },
-								{ a: "Design", b: "FY", time: "TBD" },
-								{ a: "Mech", b: "Comp", time: "TBD" },
-								{ a: "Chem", b: "Allied", time: "TBD" },
-							],
-						},
-					],
-					completed: [],
-					winners: [],
-					lastUpdated: "14 Feb 2026, 8:10 PM",
-				},
-				{
-					name: "Badminton",
-					subtitle: "Badminton",
-					icon: "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M7 4l4 4-3 3-4-4 3-3z\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\"/><path d=\"M11 8l7 7\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\"/><path d=\"M17.5 16.5l2.5 2.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\"/></svg>",
-					roundStatus: "Badminton",
-					teams: ["Design", "Mech", "Civil", "FY", "Chemical", "Comp", "ENTC", "Allied"],
-					upcomingGroups: [
-						{
-							label: "Boys",
-							matches: [
-								{ a: "Design", b: "Mech", time: "TBD" },
-								{ a: "Civil", b: "FY", time: "TBD" },
-								{ a: "Chemical", b: "Comp", time: "TBD" },
-								{ a: "ENTC", b: "Allied", time: "TBD" },
-							],
-						},
-						{
-							label: "Girls",
-							matches: [
-								{ a: "Allied", b: "ENTC", time: "TBD" },
-								{ a: "Comp", b: "FY", time: "TBD" },
-								{ a: "Civil", b: "Chem", time: "TBD" },
-								{ a: "Design", b: "Mech", time: "TBD" },
-							],
-						},
-					],
-					completed: [],
-					winners: [],
-					lastUpdated: "14 Feb 2026, 4:50 PM",
-				},
-				{
-					name: "Basketball",
-					subtitle: "Basketball",
-					icon: "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"9\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\"/><path d=\"M12 3v18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><path d=\"M3 12h18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><path d=\"M5.5 6.5c4 2.4 9 2.4 13 0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><path d=\"M5.5 17.5c4-2.4 9-2.4 13 0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/></svg>",
-					roundStatus: "Basketball",
-					teams: ["Mech", "Civil", "Design", "Chemical", "FY", "Allied", "Computer", "ENTC"],
-					upcomingGroups: [
-						{
-							label: "Boys",
-							matches: [
-								{ a: "Mech", b: "Civil", time: "TBD" },
-								{ a: "Design", b: "Chemical", time: "TBD" },
-								{ a: "FY", b: "Allied", time: "TBD" },
-								{ a: "Computer", b: "ENTC", time: "TBD" },
-							],
-						},
-						{
-							label: "Girls",
-							matches: [
-								{ a: "Mech", b: "Design", time: "TBD" },
-								{ a: "Civil", b: "Comp", time: "TBD" },
-								{ a: "ENTC", b: "Chem", time: "TBD" },
-								{ a: "FY", b: "Allied", time: "TBD" },
-							],
-						},
-					],
-					completed: [],
-					winners: [],
-					lastUpdated: "14 Feb 2026, 5:40 PM",
-				},
-				{
-					name: "Cricket",
-					subtitle: "Cricket",
-					icon: "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"4\" y=\"3\" width=\"5\" height=\"14\" rx=\"1\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/><rect x=\"6\" y=\"16\" width=\"2\" height=\"5\" rx=\"1\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/><circle cx=\"17\" cy=\"12\" r=\"3\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg>",
-					roundStatus: "Cricket",
-					teams: ["FY", "Civil", "Allied", "Mech", "ENTC", "Design", "Chem", "Comp"],
-					upcomingGroups: [
-						{
-							label: "Fixtures",
-							matches: [
-								{ a: "FY", b: "Civil", time: "TBD" },
-								{ a: "Allied", b: "Mech", time: "TBD" },
-								{ a: "ENTC", b: "Design", time: "TBD" },
-								{ a: "Chem", b: "Comp", time: "TBD" },
-							],
-						},
-					],
-					completed: [],
-					winners: [],
-					lastUpdated: "14 Feb 2026, 7:45 PM",
-				},
-				{
-					name: "Kho-Kho",
-					subtitle: "Kho-Kho",
-					icon: "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"9\" cy=\"6\" r=\"2\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/><path d=\"M9 8l2 4 5 1\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\"/><path d=\"M7 16l2-4 4 1 2 5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\"/></svg>",
-					roundStatus: "Kho-Kho",
-					teams: ["Allied", "ENTC", "Design", "Comp", "FY", "Mech", "Civil", "Chem"],
-					upcomingGroups: [
-						{
-							label: "Boys",
-							matches: [
-								{ a: "Allied", b: "ENTC", time: "TBD" },
-								{ a: "Design", b: "Comp", time: "TBD" },
-								{ a: "FY", b: "Mech", time: "TBD" },
-								{ a: "Civil", b: "Chem", time: "TBD" },
-							],
-						},
-						{
-							label: "Girls",
-							matches: [
-								{ a: "Civil", b: "FY", time: "TBD" },
-								{ a: "Design", b: "ENTC", time: "TBD" },
-								{ a: "Mech", b: "Comp", time: "TBD" },
-								{ a: "Allied", b: "Civil", time: "TBD" },
-							],
-						},
-					],
-					completed: [],
-					winners: [],
-					lastUpdated: "14 Feb 2026, 3:05 PM",
-				},
-				{
-					name: "Kabaddi",
-					subtitle: "Kabaddi",
-					icon: "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 3l7 3v5c0 4-3 7-7 9-4-2-7-5-7-9V6l7-3z\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/><path d=\"M9 9h6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg>",
-					roundStatus: "Kabaddi",
-					teams: ["ENTC", "Design", "Allied", "Mech", "Chem", "Comp", "Civil", "FY"],
-					upcomingGroups: [
-						{
-							label: "Fixtures",
-							matches: [
-								{ a: "ENTC", b: "Design", time: "TBD" },
-								{ a: "Allied", b: "Mech", time: "TBD" },
-								{ a: "Chem", b: "Comp", time: "TBD" },
-								{ a: "Civil", b: "FY", time: "TBD" },
-							],
-						},
-					],
-					completed: [],
-					winners: [],
-					lastUpdated: "14 Feb 2026, 2:30 PM",
-				},
-				{
-					name: "Throwball",
-					subtitle: "Throwball",
-					icon: "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"11\" cy=\"11\" r=\"6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/><path d=\"M16 6l4-2\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\"/></svg>",
-					roundStatus: "Throwball",
-					teams: ["Design", "Comp", "Mech", "Chem", "FY", "Allied", "ENTC", "Civil"],
-					upcomingGroups: [
-						{
-							label: "Girls",
-							matches: [
-								{ a: "Design", b: "Comp", time: "TBD" },
-								{ a: "Mech", b: "Chem", time: "TBD" },
-								{ a: "FY", b: "Allied", time: "TBD" },
-								{ a: "ENTC", b: "Civil", time: "TBD" },
-							],
-						},
-					],
-					completed: [],
-					winners: [],
-					lastUpdated: "14 Feb 2026, 1:40 PM",
-				},
-				{
-					name: "Chess",
-					subtitle: "Chess",
-					icon: "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"7\" r=\"3\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/><rect x=\"8\" y=\"13\" width=\"8\" height=\"2\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/><path d=\"M9 20h6l-1-5H10l-1 5z\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg>",
-					roundStatus: "Chess",
-					teams: ["Chem", "Civil", "Mech", "FY", "ENTC", "Comp", "Allied", "Design"],
-					upcomingGroups: [
-						{
-							label: "Boys",
-							matches: [
-								{ a: "Chem", b: "Civil", time: "TBD" },
-								{ a: "Mech", b: "FY", time: "TBD" },
-								{ a: "ENTC", b: "Comp", time: "TBD" },
-								{ a: "Allied", b: "Design", time: "TBD" },
-							],
-						},
-						{
-							label: "Girls",
-							matches: [
-								{ a: "Mech", b: "Comp", time: "TBD" },
-								{ a: "Civil", b: "Design", time: "TBD" },
-								{ a: "Chem", b: "Allied", time: "TBD" },
-								{ a: "FY", b: "ENTC", time: "TBD" },
-							],
-						},
-					],
-					completed: [],
-					winners: [],
-					lastUpdated: "14 Feb 2026, 12:15 PM",
-				},
-			];
-
-			const renderSports = () => {
-				if (!sportsGrid) {
-					return;
-				}
-
-				sportsGrid.innerHTML = sportsData
-					.map(
-						(sport, index) => `
-							<button class="sport-card" type="button" data-sport-index="${index}">
-								<div class="sport-icon">${sport.icon}</div>
-								<div class="sport-name">${sport.name}</div>
-							</button>
-						`
-					)
-					.join("");
-			};
-
-			const updateLastUpdated = () => {
-				if (!sportsLastUpdated) {
-					return;
-				}
-				const latest = sportsData
-					.map((sport) => new Date(sport.lastUpdated.replace(",", "")))
-					.sort((a, b) => b - a)[0];
-				sportsLastUpdated.textContent = latest ? latest.toLocaleString() : "--";
-			};
-
-			const openSportModal = (sport, card) => {
-				if (!sportModal || !sportPanelTitle || !sportPanelBadges || !sportUpcoming || !sportCompleted || !sportWinners) {
-					return;
-				}
-
-				document.querySelectorAll(".sport-card").forEach((btn) => btn.classList.remove("active"));
-				if (card) {
-					card.classList.add("active");
-				}
-
-				sportPanelTitle.textContent = sport.name;
-				sportPanelBadges.innerHTML = `
-					<span class="badge">${sport.roundStatus}</span>
-					<span class="badge">Next Update: 9:00 PM</span>
-					<span class="badge">Last Updated: ${sport.lastUpdated}</span>
-				`;
-				const upcomingGroups = sport.upcomingGroups || [
-					{ label: "Upcoming", matches: sport.upcoming || [] },
-				];
-				sportUpcoming.innerHTML = `
-					<div class="group-grid">
-						${upcomingGroups
-							.map(
-								(group) => `
-									<div class="group-card">
-										<div class="group-title">${group.label}</div>
-										<div class="match-list">
-											${group.matches
-												.map(
-													(match) => `<div class="match-item"><strong>${match.a} vs ${match.b}</strong><span>${match.time}</span></div>`
-												)
-												.join("")}
-										</div>
-									</div>
-								`
-							)
-							.join("")}
-					</div>
-				`;
-				sportCompleted.innerHTML = sport.completed
-					.map((match) => `<div class="match-item"><strong>${match.a} vs ${match.b}</strong><span>${match.time} · ${match.score}</span></div>`)
-					.join("");
-				sportWinners.innerHTML = sport.winners
-					.map((winner) => `<div class="match-item"><strong>${winner}</strong><span>Advances</span></div>`)
-					.join("");
-
-				sportModal.classList.add("is-open");
-				sportModal.setAttribute("aria-hidden", "false");
-			};
-
-			const closeSportModal = () => {
-				if (!sportModal) {
-					return;
-				}
-				sportModal.classList.remove("is-open");
-				sportModal.setAttribute("aria-hidden", "true");
-				document.querySelectorAll(".sport-card").forEach((btn) => btn.classList.remove("active"));
-			};
-
-			const bindSportsEvents = () => {
-				if (!sportsGrid || !sportModal) {
-					return;
-				}
-
-				sportsGrid.addEventListener("click", (event) => {
-					const card = event.target.closest(".sport-card");
-					if (!card) {
-						return;
-					}
-					const index = Number(card.dataset.sportIndex);
-					const sport = sportsData[index];
-					if (sport) {
-						openSportModal(sport, card);
-					}
-				});
-
-				sportModal.addEventListener("click", (event) => {
-					if (event.target.dataset.close === "true") {
-						closeSportModal();
-					}
-				});
-
-				document.addEventListener("keydown", (event) => {
-					if (event.key === "Escape") {
-						closeSportModal();
-					}
-				});
-			};
-
-			const scheduleSportsUpdate = () => {
-				// Placeholder: hook this to a real update endpoint later.
-			};
-
-
-			const initGsapAnimations = () => {
-				if (!window.gsap || prefersReducedMotion) {
-					return;
-				}
-
-				if (heroBanner) {
-					gsap.fromTo(
-						heroBanner,
-						{ scaleX: 0, transformOrigin: "left center", opacity: 0 },
-						{ duration: 0.9, scaleX: 1, opacity: 1, ease: "power3.out" }
-					);
-				}
-
-				gsap.fromTo(
-					houseFlags,
-					{ scaleX: 0, transformOrigin: "left center", opacity: 0 },
-					{ duration: 0.8, scaleX: 1, opacity: 1, stagger: 0.08, ease: "power3.out" }
-				);
-
-				gsap.fromTo(
-					houseLines,
-					{ opacity: 0, y: 12 },
-					{ duration: 0.8, opacity: 1, y: 0, stagger: 0.06, ease: "power2.out" }
-				);
-
-				gsap.fromTo(
-					sigils,
-					{ opacity: 0, y: 8 },
-					{ duration: 0.7, opacity: 1, y: 0, stagger: 0.05, ease: "power2.out" }
-				);
-
-				gsap.to(statusDots, {
-					duration: 1.1,
-					scale: 1.3,
-					opacity: 0.6,
-					repeat: -1,
-					yoyo: true,
-					ease: "sine.inOut",
-					stagger: 0.12,
-				});
-			};
-
-			const initTopTeamFlames = () => {
-				if (!window.gsap || prefersReducedMotion || !topTeamRow || !flameBurst) {
-					return;
-				}
-
-				let flameTimer = null;
-
-				const spawnFlame = () => {
-					const particle = document.createElement("span");
-					particle.className = "flame-particle";
-					particle.style.left = `${gsap.utils.random(10, 70)}px`;
-					particle.style.top = `${gsap.utils.random(28, 42)}px`;
-					flameBurst.appendChild(particle);
-
-					gsap.to(particle, {
-						duration: gsap.utils.random(0.6, 1.1),
-						y: gsap.utils.random(-30, -45),
-						x: gsap.utils.random(-12, 12),
-						scale: gsap.utils.random(0.6, 1.2),
-						opacity: 0,
-						ease: "power2.out",
-						onComplete: () => particle.remove(),
-					});
-				};
-
-				const startFlames = () => {
-					if (flameTimer) {
-						return;
-					}
-					spawnFlame();
-					flameTimer = window.setInterval(spawnFlame, 160);
-				};
-
-				const stopFlames = () => {
-					if (flameTimer) {
-						window.clearInterval(flameTimer);
-						flameTimer = null;
-					}
-					flameBurst.innerHTML = "";
-				};
-
-				topTeamRow.addEventListener("mouseenter", startFlames);
-				topTeamRow.addEventListener("mouseleave", stopFlames);
-			};
-
-			const initBabyDragon = () => {
-				const isMobile = window.matchMedia("(max-width: 760px)").matches || window.matchMedia("(pointer: coarse)").matches;
-				if (!window.gsap || prefersReducedMotion || !babyDragon || isMobile) {
-					return;
-				}
-
-				const setX = gsap.quickTo(babyDragon, "x", { duration: 0.6, ease: "power3.out" });
-				const setY = gsap.quickTo(babyDragon, "y", { duration: 0.6, ease: "power3.out" });
-				const setR = gsap.quickTo(babyDragon, "rotation", { duration: 0.5, ease: "power2.out" });
-
-				let lastX = window.innerWidth / 2;
-				let lastY = window.innerHeight / 2;
-
-				const handlePointer = (event) => {
-					const { clientX, clientY } = event;
-					const dx = clientX - lastX;
-					const dy = clientY - lastY;
-					const angle = Math.atan2(dy, dx) * (180 / Math.PI);
-					setX(clientX - 20);
-					setY(clientY - 20);
-					setR(angle);
-					lastX = clientX;
-					lastY = clientY;
-				};
-
-				window.addEventListener("pointermove", handlePointer);
-			};
-
-			window.addEventListener("load", () => {
-				animateBars();
-				initGsapAnimations();
-				initTopTeamFlames();
-				initBabyDragon();
-				renderSports();
-				updateLastUpdated();
-				bindSportsEvents();
-				scheduleSportsUpdate();
-			});
-		</script>
-	</body>
+	<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+	<script src="app.js"></script>
+</body>
 </html>
