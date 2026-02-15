@@ -435,6 +435,22 @@ const houseFlagMap = {
 
 // Points by sport: { team: { sport: points } }
 const sportPointsMap = {
+	"Chem": {
+		"Shot Put (Girls)": 10,
+	},
+	"ENTC": {
+		"Shot Put (Girls)": 7,
+		"Shot Put (Boys)": 5,
+	},
+	"Mech": {
+		"Shot Put (Girls)": 5,
+	},
+	"FY": {
+		"Shot Put (Boys)": 10,
+	},
+	"Civil": {
+		"Shot Put (Boys)": 7,
+	},
 };
 
 const generateLeaderboard = () => {
