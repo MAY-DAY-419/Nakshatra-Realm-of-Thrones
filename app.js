@@ -435,6 +435,9 @@ const houseFlagMap = {
 
 // Points by sport: { team: { sport: points } }
 const sportPointsMap = {
+	"Allied": {
+		"Volleyball": 10,
+	},
 	"Chem": {
 		"Shot Put (Girls)": 10,
 	},
@@ -443,9 +446,11 @@ const sportPointsMap = {
 		"Shot Put (Boys)": 5,
 	},
 	"Mech": {
+		"Volleyball": 5,
 		"Shot Put (Girls)": 5,
 	},
 	"FY": {
+		"Volleyball": 7,
 		"Shot Put (Boys)": 10,
 	},
 	"Civil": {
