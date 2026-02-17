@@ -437,6 +437,7 @@ const houseFlagMap = {
 const sportPointsMap = {
 	"Allied": {
 		"Volleyball": 10,
+		"Football": 5,
 	},
 	"Chem": {
 		"Shot Put (Girls)": 10,
@@ -444,6 +445,7 @@ const sportPointsMap = {
 	"ENTC": {
 		"Shot Put (Girls)": 7,
 		"Shot Put (Boys)": 5,
+		"Football": 7,
 	},
 	"Mech": {
 		"Volleyball": 5,
@@ -452,9 +454,14 @@ const sportPointsMap = {
 	"FY": {
 		"Volleyball": 7,
 		"Shot Put (Boys)": 10,
+		"Football": 5,
 	},
 	"Civil": {
 		"Shot Put (Boys)": 7,
+	},
+	"Comp": {
+		"Volleyball": 5,
+		"Football": 10,
 	},
 };
 
