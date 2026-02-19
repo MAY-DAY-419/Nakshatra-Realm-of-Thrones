@@ -438,6 +438,7 @@ const sportPointsMap = {
 	"Allied": {
 		"Volleyball": 10,
 		"Football": 5,
+		"Badminton (Girls)": 10,
 	},
 	"Chem": {
 		"Shot Put (Girls)": 10,
@@ -446,22 +447,29 @@ const sportPointsMap = {
 		"Shot Put (Girls)": 7,
 		"Shot Put (Boys)": 5,
 		"Football": 7,
+		"Badminton (Boys)": 7,
+		"Badminton (Girls)": 7,
 	},
 	"Mech": {
 		"Volleyball": 5,
 		"Shot Put (Girls)": 5,
+		"Badminton (Boys)": 5,
 	},
 	"FY": {
 		"Volleyball": 7,
 		"Shot Put (Boys)": 10,
 		"Football": 5,
+		"Badminton (Girls)": 5,
 	},
 	"Civil": {
 		"Shot Put (Boys)": 7,
+		"Badminton (Boys)": 10,
+		"Badminton (Girls)": 5,
 	},
 	"Comp": {
 		"Volleyball": 5,
 		"Football": 10,
+		"Badminton (Boys)": 5,
 	},
 };
 
