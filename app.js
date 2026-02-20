@@ -438,6 +438,8 @@
 		"Allied": {
 			"Volleyball": 10,
 			"Football": 5,
+			"Basketball (Boys)": 10,
+			"Basketball (Girls)": 5,
 
 		},
 		"Design": {
@@ -445,6 +447,7 @@
 		},
 		"Chem": {
 			"Shot Put (Girls)": 10,
+			"Basketball (Boys)": 5,
 		},
 		"ENTC": {
 			"Shot Put (Girls)": 7,
@@ -452,11 +455,14 @@
 			"Football": 7,
 			"Badminton (Boys)": 7,
 			"Badminton (Girls)": 7,
+			"Basketball (Boys)": 5,
+			"Basketball (Girls)": 7,
 		},
 		"Mech": {
 			"Volleyball": 5,
 			"Shot Put (Girls)": 5,
 			"Badminton (Boys)": 5,
+			"Basketball (Girls)": 5,
 		},
 		"FY": {
 			"Volleyball": 7,
@@ -468,11 +474,13 @@
 			"Shot Put (Boys)": 7,
 			"Badminton (Boys)": 10,
 			"Badminton (Girls)": 5,
+			"Basketball (Boys)": 7,
 		},
 		"Comp": {
 			"Volleyball": 5,
 			"Football": 10,
 			"Badminton (Boys)": 5,
+			"Basketball (Girls)": 10,
 		},
 	};
 
