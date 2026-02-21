@@ -440,14 +440,16 @@
 			"Football": 5,
 			"Basketball (Boys)": 10,
 			"Basketball (Girls)": 5,
-
+			"Chess": 10,
 		},
 		"Design": {
 			"Badminton (Girls)": 10,
+			"Chess": 5,
 		},
 		"Chem": {
 			"Shot Put (Girls)": 10,
 			"Basketball (Boys)": 5,
+			"Discuss Throw (Girls)": 5,
 		},
 		"ENTC": {
 			"Shot Put (Girls)": 7,
@@ -457,6 +459,9 @@
 			"Badminton (Girls)": 7,
 			"Basketball (Boys)": 5,
 			"Basketball (Girls)": 7,
+			"Discuss Throw (Boys)": 5,
+			"Discuss Throw (Girls)": 10,
+			"Chess": 5,
 		},
 		"Mech": {
 			"Volleyball": 5,
@@ -469,18 +474,22 @@
 			"Shot Put (Boys)": 10,
 			"Football": 5,
 			"Badminton (Girls)": 5,
+			"Discuss Throw (Boys)": 10,
 		},
 		"Civil": {
 			"Shot Put (Boys)": 7,
 			"Badminton (Boys)": 10,
 			"Badminton (Girls)": 5,
 			"Basketball (Boys)": 7,
+			"Discuss Throw (Boys)": 7,
+			"Discuss Throw (Girls)": 7,
 		},
 		"Comp": {
 			"Volleyball": 5,
 			"Football": 10,
 			"Badminton (Boys)": 5,
 			"Basketball (Girls)": 10,
+			"Chess": 7,
 		},
 	};
 
