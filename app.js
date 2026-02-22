@@ -450,6 +450,7 @@
 			"Shot Put (Girls)": 10,
 			"Basketball (Boys)": 5,
 			"Discuss Throw (Girls)": 5,
+			"Kho-Kho (Girls)": 5,
 		},
 		"ENTC": {
 			"Shot Put (Girls)": 7,
@@ -462,6 +463,8 @@
 			"Discuss Throw (Boys)": 5,
 			"Discuss Throw (Girls)": 10,
 			"Chess": 5,
+			"Kho-Kho (Girls)": 5,
+			"Kho-Kho (Boys)": 10,
 		},
 		"Mech": {
 			"Volleyball": 5,
@@ -475,6 +478,7 @@
 			"Football": 5,
 			"Badminton (Girls)": 5,
 			"Discuss Throw (Boys)": 10,
+			"Kho-Kho (Boys)": 5,
 		},
 		"Civil": {
 			"Shot Put (Boys)": 7,
@@ -483,6 +487,8 @@
 			"Basketball (Boys)": 7,
 			"Discuss Throw (Boys)": 7,
 			"Discuss Throw (Girls)": 7,
+			"Kho-Kho (Girls)": 7,
+			"Kho-Kho (Boys)": 7,
 		},
 		"Comp": {
 			"Volleyball": 5,
@@ -490,6 +496,8 @@
 			"Badminton (Boys)": 5,
 			"Basketball (Girls)": 10,
 			"Chess": 7,
+			"Kho-Kho (Girls)": 10,
+			"Kho-Kho (Boys)": 5,
 		},
 	};
 
