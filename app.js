@@ -562,8 +562,16 @@
 			};
 		});
 		
-		// Sort by points (descending)
-		teams.sort((a, b) => b.points - a.points);
+		// Sort by points (descending), then by number of 10-point achievements as tiebreaker
+		teams.sort((a, b) => {
+			if (b.points !== a.points) {
+				return b.points - a.points;
+			}
+			// Tiebreaker: count how many 10-point wins each team has
+			const aCount10s = Object.values(a.sportBreakdown).filter(p => p === 10).length;
+			const bCount10s = Object.values(b.sportBreakdown).filter(p => p === 10).length;
+			return bCount10s - aCount10s;
+		});
 		
 		// Generate table rows
 		const rows = teams.map((team, index) => {
