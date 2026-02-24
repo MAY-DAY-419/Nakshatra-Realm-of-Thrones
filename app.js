@@ -573,18 +573,26 @@
 			return bCount10s - aCount10s;
 		});
 		
+		// Display champion banner if champion exists
+		const champion = teams[0];
+		if (champion && champion.points > 0) {
+			displayChampionBanner(champion);
+		}
+		
 		// Generate table rows
 		const rows = teams.map((team, index) => {
 			const rank = index + 1;
 			// Only apply rank styling if team has points > 0
 			const rankClass = team.points > 0 && rank <= 3 ? ` rank-${rank}` : "";
 			const flagImg = houseFlagMap[team.houseName] || "";
+			const isChampion = rank === 1 && team.points > 0;
+			const championBadge = isChampion ? `<span class="champion-badge">👑 CHAMPION 👑</span>` : "";
 			
 			return `
-				<tr class="row-hover leaderboard-row${rankClass}" data-team="${team.department}" data-house="${team.house}" data-department="${team.department}" data-sport-breakdown='${JSON.stringify(team.sportBreakdown)}'>
+				<tr class="row-hover leaderboard-row${rankClass}${isChampion ? ' champion-row' : ''}" data-team="${team.department}" data-house="${team.house}" data-department="${team.department}" data-sport-breakdown='${JSON.stringify(team.sportBreakdown)}'>
 					<td class="rank-num${rankClass}">${rank}</td>
 					<td class="rank-flag"><img src="${flagImg}" alt="${team.houseName} flag" loading="lazy" style="max-width: 40px; height: auto;" /></td>
-					<td class="rank-house${rankClass}">${team.house} (${team.displayDepartment})</td>
+					<td class="rank-house${rankClass}">${team.house} (${team.displayDepartment})${championBadge}</td>
 					<td class="rank-points${rankClass}">${team.points}</td>
 				</tr>
 			`;
@@ -596,6 +604,116 @@
 		setTimeout(() => {
 			bindLeaderboardEvents();
 		}, 0);
+	};
+
+	const displayChampionBanner = (champion) => {
+		// Find or create champion section
+		const rankingsSection = document.querySelector(".rankings");
+		let championBanner = document.querySelector(".champion-banner");
+		
+		if (!championBanner && rankingsSection) {
+			championBanner = document.createElement("div");
+			championBanner.className = "champion-banner";
+			rankingsSection.insertBefore(championBanner, rankingsSection.firstChild);
+		}
+		
+		if (championBanner) {
+			const flagImg = houseFlagMap[champion.houseName] || "";
+			championBanner.innerHTML = `
+				<div class="champion-content">
+					<div class="trophy-icon">🏆</div>
+					<div class="champion-text">
+						<h2>SHIELD AND THE THRONE CHAMPION</h2>
+						<p>${champion.house}</p>
+						<p class="champion-points">Total Points ${champion.points} </p>
+					</div>
+					<div class="champion-flag">
+						<img src="${flagImg}" alt="${champion.houseName} flag" style="max-width: 80px; height: auto;" />
+					</div>
+				</div>
+				<div class="celebration-sparkles">
+					<span>✨</span><span>⭐</span><span>✨</span><span>⭐</span><span>✨</span>
+				</div>
+			`;
+			
+			championBanner.style.cssText = `
+				background: linear-gradient(135deg, #6c3fb0 0%, #2d1b69 100%);
+				padding: 30px;
+				border-radius: 12px;
+				margin-bottom: 30px;
+				text-align: center;
+				box-shadow: 0 8px 32px rgba(108, 63, 176, 0.3);
+				border: 3px solid #fff;
+			`;
+			
+			const content = championBanner.querySelector(".champion-content");
+			if (content) {
+				content.style.cssText = `
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					gap: 40px;
+					color: white;
+					text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+				`;
+			}
+			
+			const trophy = championBanner.querySelector(".trophy-icon");
+			if (trophy) {
+				trophy.style.cssText = `
+					font-size: 60px;
+				`;
+			}
+			
+			const text = championBanner.querySelector(".champion-text");
+			if (text) {
+				text.style.cssText = `
+					flex: 1;
+				`;
+				const h2 = text.querySelector("h2");
+				if (h2) {
+					h2.style.cssText = `
+						margin: 0 0 10px 0;
+						font-size: 32px;
+						font-weight: bold;
+						letter-spacing: 2px;
+					`;
+				}
+				const ps = text.querySelectorAll("p");
+				ps.forEach(p => {
+					p.style.cssText = `
+						margin: 5px 0;
+						font-size: 18px;
+					`;
+				});
+				const points = text.querySelector(".champion-points");
+				if (points) {
+					points.style.cssText = `
+						font-size: 24px;
+						font-weight: bold;
+						margin-top: 10px;
+					`;
+				}
+			}
+			
+			const sparkles = championBanner.querySelector(".celebration-sparkles");
+			if (sparkles) {
+				sparkles.style.cssText = `
+					margin-top: 20px;
+					font-size: 24px;
+					letter-spacing: 10px;
+					animation: sparkle 2s infinite;
+				`;
+			}
+		}
+		
+		// Add animations via GSAP if available
+		if (window.gsap && !prefersReducedMotion) {
+			gsap.fromTo(championBanner, 
+				{ opacity: 0, scale: 0.8, y: -20 },
+				{ opacity: 1, scale: 1, y: 0, duration: 1, ease: "elastic.out(1, 0.5)" }
+			);
+		}
 	};
 
 	const buildTeamStats = () => {
@@ -956,6 +1074,49 @@
 	};
 
 	window.addEventListener("load", () => {
+		// Add champion celebration styles
+		const style = document.createElement("style");
+		style.textContent = `
+			@keyframes bounce {
+				0%, 100% { transform: translateY(0); }
+				50% { transform: translateY(-20px); }
+			}
+			
+			@keyframes sparkle {
+				0%, 100% { opacity: 1; }
+				50% { opacity: 0.5; }
+			}
+			
+			@keyframes glow {
+				0%, 100% { box-shadow: 0 0 10px rgba(108, 63, 176, 0.5); }
+				50% { box-shadow: 0 0 30px rgba(108, 63, 176, 0.9); }
+			}
+			
+			.champion-banner {
+				animation: glow 2s infinite;
+			}
+			
+			.champion-row {
+				background: linear-gradient(90deg, rgba(108, 63, 176, 0.1) 0%, rgba(108, 63, 176, 0.2) 100%);
+				font-weight: bold;
+				border: 2px solid #6c3fb0;
+				box-shadow: 0 0 10px rgba(108, 63, 176, 0.3);
+			}
+			
+			.champion-badge {
+				display: inline-block;
+				background: linear-gradient(135deg, #6c3fb0, #2d1b69);
+				color: white;
+				padding: 4px 12px;
+				border-radius: 20px;
+				font-size: 12px;
+				margin-left: 10px;
+				font-weight: bold;
+				text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+			}
+		`;
+		document.head.appendChild(style);
+		
 		animateBars();
 		initGsapAnimations();
 		initTopTeamFlames();
